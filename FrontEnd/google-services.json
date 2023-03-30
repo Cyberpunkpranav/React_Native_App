@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "463585291697",
+    "project_id": "material-motors",
+    "storage_bucket": "material-motors.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:463585291697:android:066f7ee79b71e85624a190",
+        "android_client_info": {
+          "package_name": "Material.Motors"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "463585291697-05skqlrfj4h9efeobpp35tacskufegrm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA0_Wd0e9ScbWpiKuD9Ug0pN_htMLE9dN0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "463585291697-05skqlrfj4h9efeobpp35tacskufegrm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
