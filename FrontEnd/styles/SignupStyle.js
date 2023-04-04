@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native'
 
-const index = StyleSheet.create({
+const signup = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#e1e1e1',
@@ -14,10 +14,11 @@ const index = StyleSheet.create({
         padding: 10,
         borderWidth: 1,
         marginTop: 10,
+        borderColor:'black',
         borderRadius: 10,
     },
     button: {
-        width: 100,
+        width: 200,
         height: 35,
         backgroundColor: 'black',
         padding: 5,
@@ -32,4 +33,4 @@ const index = StyleSheet.create({
         color: 'white'
     }
 })
-export default index 
+export default signup 

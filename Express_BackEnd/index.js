@@ -27,7 +27,8 @@ app.listen(port, (req, res) => {
 
 
 app.post('/login',function LoginUser(req, res){
-        console.log(req.body)
+        // console.log(req.body)
+        console.log(DBLoginCreds[0])
         let login =[];
         for(let i=0;i<DBLoginCreds[0].length;i++){ 
         if(DBLoginCreds[0][i].email_id == req.body.username && DBLoginCreds[0][i].password ==req.body.password){
@@ -61,3 +62,7 @@ if(login[0].email_id == req.body.username && login[0].password ==req.body.passwo
 
 
 }) 
+
+app.post('/signup',function Signupuser(req,res){
+        pool.query()
+})
