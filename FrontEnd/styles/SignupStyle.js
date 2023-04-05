@@ -7,6 +7,7 @@ const signup = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
     },
+
     input: {
         width: 200,
         height: 50,

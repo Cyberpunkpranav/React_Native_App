@@ -5,9 +5,10 @@ import login from '../../styles/LoginStyle.js'
 
 import { Text, View, SafeAreaView, TextInput, Pressable, Button } from 'react-native';
 
-function Login({ navigation }) {
+function Login({navigation}) {
     const [username, setusername] = useState()
     const [password, setpassword] = useState()
+    
     async function Login() {
         console.log('clicked')
         console.log(username, password)
@@ -16,7 +17,6 @@ function Login({ navigation }) {
             username: username,
             password: password
     }).then((response) => {
-
             alert(response.data.message)
             console.log(response.data.message)
         })
