@@ -64,8 +64,9 @@ app.post('/login', function LoginUser(req, res) {
 })
 
 app.post('/signup', async function Signupuser(req, res) {
+ if (req.body.firstname && req.body.lastname && req.body.email_id && req.body.phone && req.body.password) {
         if (req.body.phone) {
-                const phone_Search = `SELECT phone FROM user_details WHERE user_details.phone = '${req.body.phone}'`;
+        const phone_Search = `SELECT phone FROM user_details WHERE user_details.phone = '${req.body.phone}'`;
                 pool.query(phone_Search, async (error, results) => {
                         if (error) {
                                 res.send(error)
@@ -77,11 +78,8 @@ app.post('/signup', async function Signupuser(req, res) {
                                         status: true
                                 }
                                 )
-                        }
-
-                })
-        } else if (req.body.email_id) {
-                const Email_Search = `SELECT email_id FROM user_details WHERE user_details.email_id = '${req.body.email_id}'`;
+                        } else if(req.body.email_id){
+   const Email_Search = `SELECT email_id FROM user_details WHERE user_details.email_id = '${req.body.email_id}'`;
                 pool.query(Email_Search, async (error, results) => {
 
                         if (error) {
@@ -95,44 +93,37 @@ app.post('/signup', async function Signupuser(req, res) {
                                 }
                                 )
                         } else {
-                                res.send('')
+                                const sqlQuery = `INSERT INTO user_details (firstname,lastname,email_id,phone,passcode) VALUES ('${req.body.firstname}','${req.body.lastname}','${req.body.email_id}','${req.body.phone}','${req.body.password}')`;
+                                pool.query(sqlQuery, (error, results) => {
+                                        if (error) {
+                                                res.send(error)
+                                        } else {
+                                                res.send(Data = {
+                                                        data: {},
+                                                        message: 'Account Created Successfully',
+                                                        status: true
+                                                })
+                                        }
+        
+                                });
                         }
                 })
-        } else {
-                if (req.body.firstname && req.body.lastname && req.body.email_id && req.body.phone && req.body.password) {
-                        const sqlQuery = `INSERT INTO User_Details (firstname,lastname,email_id,phone,password) VALUES ('${req.body.firstname}','${req.body.lastname}','${req.body.email_id}','${req.body.phone}','${req.body.password}')`;
-                        pool.query(sqlQuery, (error, results) => {
-                                if (error) {
-                                        res.send(error)
-                                } else {
-                                        res.send(Data = {
-                                                data: {},
-                                                message: 'Account Created Successfully',
-                                                status: true
-                                        })
-                                }
+                        } else{
+                                res.send(Data = {
+                                        data: {},
+                                        message: 'Please enter correct Email ID or Phone Number',
+                                        status: false
+                                })
+                        }
+                })
 
-                        });
-                } else {
-                        res.send(Data = {
-                                data: {},
-                                message: 'Please Fill all Details',
-                                status: true
-                        })
-                }
+        } 
+        }else {
+                res.send(Data = {
+                        data: {},
+                        message: 'Please Fill all Details',
+                        status: false
+                })
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 })

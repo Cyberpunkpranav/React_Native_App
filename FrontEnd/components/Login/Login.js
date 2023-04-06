@@ -13,7 +13,7 @@ function Login({navigation}) {
         console.log('clicked')
         console.log(username, password)
         // try {
-        await axios.post(`http://192.168.1.8:3001/login`,{
+        await axios.post(`http://192.168.0.104:3001/login`,{
             username: username,
             password: password
     }).then((response) => {
