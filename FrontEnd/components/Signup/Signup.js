@@ -1,6 +1,7 @@
 import { Text, View, SafeAreaView, TextInput, Pressable, Button } from 'react-native';
 import React, { Component, useEffect, useRef, useState } from 'react'
 import signup from '../../styles/SignupStyle'
+import {safearea,bootstrap } from '../../constants/Bootstrap';
 import axios from 'axios'
 function Signup() {
     const confirmpassRef = useRef(null)
@@ -15,7 +16,7 @@ function Signup() {
     async function signupfunc() {
         try {
             console.log(firstname, lastname, emailid, phone, password)
-            await axios.post('http://192.168.1.8:3001/signup', {
+            await axios.post('http://192.168.0.104:3001/signup', {
                 firstname: firstname,
                 lastname: lastname,
                 email_id: emailid,
@@ -38,7 +39,7 @@ function Signup() {
                     borderColor: 'green',
                 },
             });
-        } else if (password !== confirmpassword) {
+        } else if (confirmpassword !==undefined && confirmpassword.length>0 && password !== confirmpassword) {
             confirmpassRef.current.setNativeProps({
                 style: {
                     borderColor: 'red',
@@ -47,7 +48,7 @@ function Signup() {
         } else {
             confirmpassRef.current.setNativeProps({
                 style: {
-                    borderColor: 'black',
+                    borderColor: 'transparent',
                 },
             });
         }
@@ -57,20 +58,24 @@ function Signup() {
     }, [confirmpassword])
 
     return (
-        <SafeAreaView style={signup.container}>
-            <Text>Signup</Text>
-
-
-            <TextInput style={signup.input} onChangeText={(text) => { setfirstname(text) }} placeholder='Firstname' />
-            <TextInput style={signup.input} onChangeText={(text) => { setlastname(text) }} placeholder='Lastname' />
-            <TextInput style={signup.input} onChangeText={(text) => { setemailid(text) }} placeholder='Email ID' />
-            <TextInput style={signup.input} onChangeText={(text) => { setphone(text) }} placeholder='Phone No.' />
-            <TextInput style={signup.input} onChangeText={(text) => { setpassword(text) }} secureTextEntry={true} placeholder='Password' />
-            <TextInput ref={confirmpassRef} style={signup.input} onChangeText={(text) => { setconfirmpassword(text) }} placeholder='Confirm Password' />
-
-            <Pressable style={signup.button} onPress={signupfunc}>
-                <Text style={signup.text1}>Create Account </Text>
+        <SafeAreaView style={[safearea.AndroidSafeArea,bootstrap.container,bootstrap.bg_white]}>
+      
+              <View style={{marginTop:200,alignItems:'center'}}>
+            <Text style={bootstrap.fs_4_5}>Material Motors</Text>
+            <View style={{flexDirection:'row'}}>
+<TextInput style={[{flex:1,margin:5}, bootstrap.input, bootstrap.bg_palepurple]} onChangeText={(text) => { setfirstname(text) }} placeholder='Firstname' />
+<TextInput style={[{flex:1,margin:5}, bootstrap.input, bootstrap.bg_palepurple]} onChangeText={(text) => { setlastname(text) }} placeholder='Lastname' />
+            </View>
+<TextInput style={[bootstrap.input, bootstrap.bg_palepurple,{width:375}]} onChangeText={(text) => { setemailid(text) }} placeholder='Email ID' />
+<TextInput style={[bootstrap.input, bootstrap.bg_palepurple,{width:375}]} onChangeText={(text) => { setphone(text) }} placeholder='Phone No.' />
+<View style={{flexDirection:'row'}}>
+<TextInput style={[{flex:1,margin:5},bootstrap.input, bootstrap.bg_palepurple]} onChangeText={(text) => { setpassword(text) }} secureTextEntry={true}placeholder='Password' />
+<TextInput ref={confirmpassRef} style={[{flex:1,margin:5},bootstrap.input, bootstrap.bg_palepurple]} onChangeText={(text) => { setconfirmpassword(text) }} placeholder='Confirm Password' />
+</View>
+            <Pressable style={bootstrap.btn_darkpurple} onPress={signupfunc}>
+                <Text style={[bootstrap.text_white, bootstrap.text_semibold]}>Create Account </Text>
             </Pressable>
+            </View>
         </SafeAreaView>
     )
 

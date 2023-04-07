@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet,Platform, StatusBar } from 'react-native'
 // powder blue #a1c6ea
 // earth Yellow #eaba6b
 // periwinkle #c3bef7
@@ -18,8 +18,29 @@ const periwinkle = '#c3bef7'
 const white = '#ffffff'
 const palepurple = '#EEE1F4'
 // Color Schema
-
+const safearea =  StyleSheet.create({
+  AndroidSafeArea: {
+    flex: 1,
+    backgroundColor: "white",
+    paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0
+  }
+});
+export {safearea}
 const bootstrap = StyleSheet.create({
+    container: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'flex-start',
+    },
+    input: {
+        width: 200,
+        height: 50,
+        padding: 10,
+        color: 'white',
+        borderWidth: 1,
+        marginTop: 10,
+        borderRadius: 10,
+    },
     bg_powderblue: {
         backgroundColor: powderblue,
         color: darkpurple,
@@ -120,9 +141,11 @@ const bootstrap = StyleSheet.create({
     btn_darkpurple: {
         backgroundColor: darkpurple,
         color: palepurple,
-        width: 100,
+        width: 'auto',
         height: 35,
-        padding: 5,
+        paddingTop: 5,
+        paddingBottom:5,
+        paddingHorizontal:10,
         borderColor: darkpurple,
         borderWidth: 1,
         marginTop: 10,
@@ -134,9 +157,11 @@ const bootstrap = StyleSheet.create({
         backgroundColor: xanthous,
         borderColor: xanthous,
         color: gunmetal,
-        width: 100,
+        width: 'auto',
         height: 35,
-        padding: 5,
+        paddingTop: 5,
+        paddingBottom:5,
+        paddingHorizontal:10,
         borderWidth: 1,
         marginTop: 10,
         marginBottom: 10,
@@ -147,9 +172,11 @@ const bootstrap = StyleSheet.create({
         backgroundColor: earthyellow,
         borderColor: earthyellow,
         color: gunmetal,
-        width: 100,
+        width: 'auto',
         height: 35,
-        padding: 5,
+        paddingTop: 5,
+        paddingBottom:5,
+        paddingHorizontal:10,
         borderWidth: 1,
         marginTop: 10,
         marginBottom: 10,
