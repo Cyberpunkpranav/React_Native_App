@@ -15,40 +15,41 @@ function Signup() {
     async function signupfunc() {
         try {
             console.log(firstname, lastname, emailid, phone, password)
-            await axios.post('http://192.168.0.104:3001/signup', {
+            await axios.post('http://192.168.1.8:3001/signup', {
                 firstname: firstname,
                 lastname: lastname,
                 email_id: emailid,
                 phone: phone,
                 password: password
             }).then((response) => {
-                console.log(response)
-                alert(response.data.message)
+
+                    alert(response.data.message)
+           
             })
         } catch (e) {
-            alert(e)
+            alert(e.message)
         }
     }
 
     function CheckPasswords() {
-        if ( confirmpassword !== undefined && password === confirmpassword) {
+        if (confirmpassword !== undefined && password === confirmpassword) {
             confirmpassRef.current.setNativeProps({
                 style: {
-                  borderColor: 'green',
+                    borderColor: 'green',
                 },
-              });
-        } else if(password !== confirmpassword) {
+            });
+        } else if (password !== confirmpassword) {
             confirmpassRef.current.setNativeProps({
                 style: {
-                  borderColor: 'red',
+                    borderColor: 'red',
                 },
-              });
-        }else{
+            });
+        } else {
             confirmpassRef.current.setNativeProps({
                 style: {
-                  borderColor: 'black',
+                    borderColor: 'black',
                 },
-              });
+            });
         }
     }
     useEffect(() => {

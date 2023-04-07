@@ -24,14 +24,12 @@ app.listen(port, (req, res) => {
         //     console.log(pool)
 })
 
-
-
 app.post('/login', function LoginUser(req, res) {
-        // console.log(req.body)
-        // console.log(DBLoginCreds[0])
+        console.log(req.body)
+        console.log(DBLoginCreds[0])
         let login = [];
         for (let i = 0; i < DBLoginCreds[0].length; i++) {
-                if (DBLoginCreds[0][i].email_id == req.body.username && DBLoginCreds[0][i].password == req.body.password) {
+                if (DBLoginCreds[0][i].email_id == req.body.username && DBLoginCreds[0][i].passcode == req.body.password) {
                         // console.log(req.body.username,req.body.password)
                         // console.log(DBLoginCreds[0][i].email_id,DBLoginCreds[0][i].password)
                         login.push(DBLoginCreds[0][i])
@@ -45,7 +43,7 @@ app.post('/login', function LoginUser(req, res) {
                         status: false
                 })
         } else {
-                if (login[0].email_id == req.body.username && login[0].password == req.body.password) {
+                if (login[0].email_id == req.body.username && login[0].passcode == req.body.password) {
                         res.send(Data = {
                                 data: {},
                                 message: 'Login successfully',
@@ -75,7 +73,7 @@ app.post('/signup', async function Signupuser(req, res) {
                                 res.send(Data = {
                                         data: {},
                                         message: 'Phone Number Already Exists',
-                                        status: true
+                                        status: false
                                 }
                                 )
                         } else if(req.body.email_id){
@@ -89,7 +87,7 @@ app.post('/signup', async function Signupuser(req, res) {
                                 res.send(Data = {
                                         data: {},
                                         message: 'Email_id Already Exists',
-                                        status: true
+                                        status: false
                                 }
                                 )
                         } else {
