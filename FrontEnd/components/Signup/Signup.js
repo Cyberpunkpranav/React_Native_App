@@ -1,4 +1,4 @@
-import { Text, View, SafeAreaView, TextInput, Pressable, Button, TouchableOpacity, Image } from 'react-native';
+import { Text, View, SafeAreaView, TextInput, Pressable, Button, TouchableOpacity, Image,Alert } from 'react-native';
 import React, { Component, useEffect, useRef, useState } from 'react'
 import signup from '../../styles/SignupStyle'
 import { safearea, bootstrap } from '../../constants/Bootstrap';
@@ -16,7 +16,7 @@ function Signup({ navigation }) {
     async function signupfunc() {
         try {
             console.log(firstname, lastname, emailid, phone, password)
-            await axios.post('http://192.168.1.8:3001/signup', {
+            await axios.post('http://192.168.3.224:3001/signup', {
                 firstname: firstname,
                 lastname: lastname,
                 email_id: emailid,
@@ -24,7 +24,7 @@ function Signup({ navigation }) {
                 password: password
             }).then((response) => {
 
-                alert(response.data.message)
+                Alert.alert('Login',response.data.message)
 
             })
         } catch (e) {
@@ -62,7 +62,7 @@ function Signup({ navigation }) {
 
             <View style={{ marginTop: 30, alignItems: 'center', marginTop: 150 }}>
                 <View style={{ flexDirection: 'row' }}>
-                    <TouchableOpacity onPress={() => navigation.navigate('Login')} style={{ flexDirection: 'row',paddingRight:20,marginTop:2 }}>
+                    <TouchableOpacity onPress={() => navigation.navigate('Login')} style={{ flexDirection: 'row', paddingRight: 20, marginTop: 2 }}>
                         <Image source={require('../../assets/images/backarrow.png')} style={{ width: 30, height: 30, alignSelf: 'center' }} />
                         <Text style={[{ alignSelf: 'center' }, bootstrap.text_xanthous]}>Login</Text>
                     </TouchableOpacity>

@@ -13,7 +13,7 @@ function Login({ navigation }) {
     async function Login() {
         console.log(username, password)
         try {
-            await axios.post(`http://192.168.1.8:3001/login`, {
+            await axios.post(`http://192.168.3.224:3001/login`, {
                 username: username,
                 password: password
             }).then((response) => {
@@ -24,8 +24,6 @@ function Login({ navigation }) {
         }
 
     }
-
-
     return (
         <SafeAreaView style={[safearea.AndroidSafeArea, bootstrap.container, bootstrap.bg_white]}>
             <StatusBar style="auto" />
