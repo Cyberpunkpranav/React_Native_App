@@ -1,6 +1,6 @@
 import { StyleSheet, Platform, StatusBar } from 'react-native'
 // powder blue #a1c6ea
-// earth Yellow #eaba6b
+// lemon chiffon #F4F0BB
 // periwinkle #c3bef7
 // dark purple #2f243a
 // xanthous #fac05e

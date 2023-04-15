@@ -13,7 +13,7 @@ function Login({ navigation }) {
     async function Login() {
         console.log(username, password)
         try {
-            await axios.post(`http://192.168.3.224:3001/login`, {
+            await axios.post(`http://192.168.3.229:3001/login`, {
                 username: username,
                 password: password
             }).then((response) => {

@@ -1,4 +1,4 @@
-import { Text, View, SafeAreaView, TextInput, Pressable, Button, TouchableOpacity, Image,Alert } from 'react-native';
+import { Text, View, SafeAreaView, TextInput, Pressable, Button, TouchableOpacity, Image, Alert } from 'react-native';
 import React, { Component, useEffect, useRef, useState } from 'react'
 import signup from '../../styles/SignupStyle'
 import { safearea, bootstrap } from '../../constants/Bootstrap';
@@ -16,7 +16,7 @@ function Signup({ navigation }) {
     async function signupfunc() {
         try {
             console.log(firstname, lastname, emailid, phone, password)
-            await axios.post('http://192.168.3.224:3001/signup', {
+            await axios.post('http://192.168.3.229:3001/signup', {
                 firstname: firstname,
                 lastname: lastname,
                 email_id: emailid,
@@ -24,8 +24,8 @@ function Signup({ navigation }) {
                 password: password
             }).then((response) => {
 
-                Alert.alert('Login',response.data.message)
-
+                Alert.alert('Login', response.data.message)
+                
             })
         } catch (e) {
             alert(e.message)
