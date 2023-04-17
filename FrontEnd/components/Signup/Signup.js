@@ -16,7 +16,7 @@ function Signup({ navigation }) {
     async function signupfunc() {
         try {
             console.log(firstname, lastname, emailid, phone, password)
-            await axios.post('http://192.168.3.229:3001/signup', {
+            await axios.post('http://192.168.3.234:3001/signup', {
                 firstname: firstname,
                 lastname: lastname,
                 email_id: emailid,
@@ -25,7 +25,7 @@ function Signup({ navigation }) {
             }).then((response) => {
 
                 Alert.alert('Login', response.data.message)
-                
+
             })
         } catch (e) {
             alert(e.message)

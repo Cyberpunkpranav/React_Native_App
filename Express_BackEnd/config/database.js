@@ -1,11 +1,10 @@
 const express = require('express');
 const { status } = require('express/lib/response');
 require('dotenv').config()
-const app = express();
 const mysql = require('mysql2');
 
 
-const pool = mysql.createPool({
+const DB = mysql.createPool({
     host: 'localhost',
     user: 'root',
     password: 'MYSQLaccount123',
@@ -15,8 +14,6 @@ const pool = mysql.createPool({
     queueLimit: 0
   });
   
-  
-  
-  module.exports = pool
+  module.exports = DB
 
 
