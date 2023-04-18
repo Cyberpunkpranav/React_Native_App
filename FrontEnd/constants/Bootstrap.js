@@ -9,7 +9,10 @@ import { StyleSheet, Platform, StatusBar } from 'react-native'
 // lavender '#BD87D4
 // Mindaro #D5E68D
 // Pigment Green #47A025
-// Color Schema
+// White #FBFCFF
+//seasalt #F9F8F8
+//black olive #36382E
+// Color Schema 
 const powderblue = '#a1c6ea'
 const gunmetal = '#293132'
 const xanthous = '#fac05e'

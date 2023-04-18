@@ -9,11 +9,11 @@ import { safearea, bootstrap } from '../../constants/Bootstrap.js'
 function Login({ navigation }) {
     const [username, setusername] = useState()
     const [password, setpassword] = useState()
-
+    console.log(process.env.LOCALHOST)
     async function Login() {
         console.log(username, password)
         try {
-            await axios.post(`http://192.168.3.234:3001/login`, {
+            await axios.post(`http://192.168.1.8:3001/login`, {
                 username: username,
                 password: password
             }).then((response) => {
