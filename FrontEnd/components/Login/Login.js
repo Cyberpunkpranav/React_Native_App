@@ -1,5 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import axios from 'axios'
 import login from '../../styles/LoginStyle.js'
 import { Text, View, SafeAreaView, TextInput, Pressable, Button, TouchableOpacity } from 'react-native';
@@ -13,11 +14,13 @@ function Login({ navigation }) {
     async function Login() {
         console.log(username, password)
         try {
-            await axios.post(`http://192.168.1.8:3001/login`, {
+            await axios.post(`http:// 192.168.1.4:3001/login`, {
                 username: username,
                 password: password
             }).then((response) => {
                 alert(response.data.message)
+                const user ={username,password};
+                dispatch({type:'LOGIN',payload:user})
             })
         } catch (e) {
             alert(e.message)
