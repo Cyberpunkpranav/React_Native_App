@@ -31,6 +31,10 @@ const safearea = StyleSheet.create({
 });
 export { safearea }
 const bootstrap = StyleSheet.create({
+    img_small:{
+        width:50,
+        height:50
+    },
     container: {
         flex: 1,
         alignItems: 'center',

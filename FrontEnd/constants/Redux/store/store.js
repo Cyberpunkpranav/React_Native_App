@@ -1,6 +1,6 @@
-import {createStore} from 'react-redux'
-import {loginReducer} from '../reducers/reducers'
+// import {createStore} from 'react-redux'
+// import {loginReducer} from '../reducers/reducers'
 
-const Loginstore  = createStore(loginReducer)
+// const Loginstore  = createStore(loginReducer)
 
-export {Loginstore}
+// export {Loginstore}
