@@ -17,7 +17,7 @@ function Signup({ navigation }) {
         setload(true)
         try {
             console.log(firstname, lastname, emailid, phone, password)
-            await axios.post('http://192.168.0.102:3001/signup', {
+            await axios.post('http://192.168.1.2:3001/signup', {
                 firstname: firstname,
                 lastname: lastname,
                 email_id: emailid,
@@ -68,7 +68,7 @@ function Signup({ navigation }) {
                     <TextInput style={[{ flex: 1, margin: 5 }, bootstrap.input, bootstrap.bg_palepurple]} onChangeText={(text) => { setfirstname(text) }} placeholder='Firstname' />
                     <TextInput style={[{ flex: 1, margin: 5 }, bootstrap.input, bootstrap.bg_palepurple]} onChangeText={(text) => { setlastname(text) }} placeholder='Lastname' />
                 </View>
-                <TextInput style={[bootstrap.input, bootstrap.bg_palepurple, { width: 375 }]} onChangeText={(text)=> { setemailid(text) }} placeholder='Email ID' /> 
+                <TextInput style={[bootstrap.input, bootstrap.bg_palepurple, { width: 375 }]} onChangeText={(text) => { setemailid(text) }} placeholder='Email ID' />
                 <TextInput style={[bootstrap.input, bootstrap.bg_palepurple, { width: 375 }]} onChangeText={(text) => { setphone(text) }} placeholder='Phone No.' /> <View style={{ flexDirection: 'row' }}>
                     <TextInput style={[{ flex: 1, margin: 5 }, bootstrap.input, bootstrap.bg_palepurple]} onChangeText={(text) => { setpassword(text) }} secureTextEntry={true} placeholder='Password' />
                     <TextInput ref={confirmpassRef} style={[{ flex: 1, margin: 5 }, bootstrap.input, bootstrap.bg_palepurple]} onChangeText={(text) => { setconfirmpassword(text) }} placeholder='Confirm Password' />
