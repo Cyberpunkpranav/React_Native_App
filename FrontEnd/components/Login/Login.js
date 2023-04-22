@@ -10,13 +10,13 @@ function Login({ navigation }) {
     const [load, setload] = useState(false)
     const [username, setusername] = useState()
     const [password, setpassword] = useState()
-    console.log(process.env.GOOOGL_MAPS)
+    console.log(process.env.GOOGLE_MAPS)
 
     async function Login() {
         setload(true)
         console.log(username, password)
         try {
-            await axios.post(`http://192.168.1.2:3001/login`, {
+            await axios.post(`http://materialmotors.cejtlrnme2eg.ap-south-1.rds.amazonaws.com/login`, {
                 username: username,
                 password: password
             }).then((response) => {
@@ -50,13 +50,13 @@ function Login({ navigation }) {
                     onChangeText={(text) => { setpassword(text) }}
                 />
                 {
-                    load ? 
+                    load ?
                         <ActivityIndicator size="small" style={bootstrap.btn_darkpurple} />
-                    : 
+                        :
                         <Pressable style={bootstrap.btn_darkpurple} onPress={Login} >
                             <Text style={[bootstrap.text_white, bootstrap.text_bold]} >Sign in</Text>
                         </Pressable>
-                    
+
                 }
 
                 <View style={{ flexDirection: 'row', justifyContent: 'center', marginLeft: 40, marginTop: 10 }} >
