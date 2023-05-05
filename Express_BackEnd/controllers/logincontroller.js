@@ -24,6 +24,10 @@ async function LoginUser(req, res) {
         status: false
       })
     }
+    res.setTimeout(1200, function(){
+      console.log('Request has timed out.');
+          res.send(408);
+      });
 
   })
 }

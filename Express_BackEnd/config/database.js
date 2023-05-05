@@ -9,7 +9,7 @@ const DB = mysql.createPool({
   user: 'admin',
   port:'3306',
   password: 'AWSaccount123',
-  database: 'materialmotors',
+  database: 'material motors',
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0
