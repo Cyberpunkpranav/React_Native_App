@@ -5,10 +5,14 @@ const mysql = require('mysql2');
 
 
 const DB = mysql.createPool({
-  host: 'materialmotors.cejtlrnme2eg.ap-south-1.rds.amazonaws.com',
-  user: 'admin',
+  host: 'localhost',
+  user: 'root',
   port:'3306',
+<<<<<<< Updated upstream
   password: 'AWSaccount123',
+=======
+  password: 'MYSQLaccount123',
+>>>>>>> Stashed changes
   database: 'material motors',
   waitForConnections: true,
   connectionLimit: 10,

@@ -5,7 +5,7 @@ const app = express();
 
 
 async function LoginUser(req, res) {
-  const searchquery = `SELECT * FROM User_Details WHERE email_id='${req.body.username}' AND passcode = '${req.body.password}'`
+  const searchquery = `SELECT * FROM user_details WHERE email_id='${req.body.username}' AND passcode = '${req.body.password}'`
   DB.query(searchquery, async (err, results) => {
     if (err) {
       console.log(err)
@@ -13,7 +13,9 @@ async function LoginUser(req, res) {
     }
     if (results.length > 0) {
       res.send(Data = {
-        data: {},
+        data: {
+          results
+        },
         message: 'Login successfully',
         status: true
       })

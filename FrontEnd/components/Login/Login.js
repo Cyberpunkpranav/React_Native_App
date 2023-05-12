@@ -16,7 +16,7 @@ function Login({ navigation }) {
         setload(true)
         console.log(username, password)
         try {
-            await axios.post(`http://materialmotors.cejtlrnme2eg.ap-south-1.rds.amazonaws.com/login`, {
+            await axios.post(`http://192.168.0.102:3001/login`, {
                 username: username,
                 password: password
             }).then((response) => {

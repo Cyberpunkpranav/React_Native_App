@@ -17,7 +17,7 @@ function Signup({ navigation }) {
         setload(true)
         try {
             console.log(firstname, lastname, emailid, phone, password)
-            await axios.post('http://192.168.1.2:3001/signup', {
+            await axios.post('http://192.168.0.102:3001/signup', {
                 firstname: firstname,
                 lastname: lastname,
                 email_id: emailid,

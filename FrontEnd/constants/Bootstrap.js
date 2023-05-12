@@ -1,4 +1,6 @@
-import { StyleSheet, Platform, StatusBar } from 'react-native'
+import { Platform, StatusBar } from 'react-native'
+import { StyleSheet } from 'react-native-auto-stylesheet';
+
 // powder blue #a1c6ea
 // lemon chiffon #F4F0BB
 // periwinkle #c3bef7
@@ -21,24 +23,58 @@ const earthyellow = '#eaba6b'
 const periwinkle = '#c3bef7'
 const white = '#ffffff'
 const palepurple = '#EEE1F4'
+const seasalt = '#F9F8F8'
 // Color Schema
 const safearea = StyleSheet.create({
     AndroidSafeArea: {
         flex: 1,
         backgroundColor: "white",
-        paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0
+        paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
+
     }
 });
 export { safearea }
+
 const bootstrap = StyleSheet.create({
+    map:{
+     width:'100%',
+     height:'50%',
+     borderStyle:'solid',
+     borderWidth:2,
+    },
     img_small:{
+        width:20,
+        height:20,
+    },
+        img_medium:{
+        width:30,
+        height:30,
+    },
+    img_large:{
         width:50,
-        height:50
+        height:50,
     },
     container: {
+        height:100,
+        width:100
+    },
+    container_fluid: {
         flex: 1,
-        alignItems: 'center',
         justifyContent: 'flex-start',
+    },
+    justify_content_spacearound:{
+        justifyContent:'space-around'
+    },  
+    justify_content_between:{
+        justifyContent:'space-between'
+    }, 
+    row:{
+        flex: 1,
+        flexDirection:'row',
+        direction:'ltr',
+        minWidth:375
+        // min-width:'100%'
+
     },
     input: {
         width: 200,
@@ -83,6 +119,11 @@ const bootstrap = StyleSheet.create({
         backgroundColor: white,
         color: gunmetal,
         borderColor: white
+    },
+    bg_seasalt: {
+        backgroundColor: seasalt,
+        color: gunmetal,
+        borderColor: seasalt
     },
     bg_palepurple: {
         backgroundColor: palepurple,
@@ -129,22 +170,22 @@ const bootstrap = StyleSheet.create({
         fontSize: 65
     },
     fs_3: {
-        fontSize: 55
-    },
-    fs_3_5: {
-        fontSize: 45
-    },
-    fs_4: {
-        fontSize: 35
-    },
-    fs_4_5: {
         fontSize: 25
     },
+    fs_3_5: {
+        fontSize: 22
+    },
+    fs_4: {
+        fontSize: 18
+    },
+    fs_4_5: {
+        fontSize: 16
+    },
     fs_5: {
-        fontSize: 15
+        fontSize: 12
     },
     fs_6: {
-        fontSize: 10
+        fontSize: 8
     },
     btn_darkpurple: {
         backgroundColor: darkpurple,
